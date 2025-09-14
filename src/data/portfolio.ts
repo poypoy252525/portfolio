@@ -2,10 +2,10 @@ import type { PortfolioData } from "@/types";
 
 export const portfolioData: PortfolioData = {
   personal: {
-    name: "Carl",
+    name: "Carl Jefferson",
     title: "Full Stack Developer",
     description:
-      "I'm a passionate developer who loves creating beautiful, functional, and user-friendly applications. With expertise in modern web technologies, I bring ideas to life through clean code and thoughtful design.",
+      "I'm a passionate developer who loves creating beautiful, functional, and user-friendly applications. With expertise in modern web technologies, I bring ideas to life through clean code.",
   },
   about: {
     summary:
@@ -149,6 +149,7 @@ export const portfolioData: PortfolioData = {
         { name: "VS Code", level: "advanced" },
         { name: "Postman", level: "intermediate" },
         { name: "Jest", level: "beginner" },
+        { name: "Electron", level: "beginner" },
       ],
     },
   ],
