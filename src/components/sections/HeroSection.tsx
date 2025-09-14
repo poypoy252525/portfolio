@@ -151,7 +151,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
 
           {/* Scroll Indicator */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
@@ -165,7 +165,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="text-sm mb-2">Scroll to explore</span>
               <ArrowDown className="h-4 w-4" />
             </motion.div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

@@ -8,8 +8,7 @@ export const portfolioData: PortfolioData = {
       "I'm a passionate developer who loves creating beautiful, functional, and user-friendly applications. With expertise in modern web technologies, I bring ideas to life through clean code.",
   },
   about: {
-    summary:
-      "As a dedicated full-stack developer with over 3 years of experience, I specialize in creating scalable web applications and intuitive user interfaces. I'm passionate about writing clean, maintainable code and staying up-to-date with the latest technologies. My goal is to bridge the gap between technical functionality and user experience.",
+    summary: `As a recent BSIT graduate, I focus on building scalable web applications and intuitive user interfaces. I’m passionate about writing clean, maintainable code and continuously learning new technologies. My goal is to grow as a full-stack developer while creating solutions that balance technical functionality with great user experiences.`,
     experience: [
       "Completed multiple academic and personal projects using React.js, Node.js, and MongoDB",
       "Built full-stack web applications from planning to deployment as part of capstone and personal work",
@@ -18,6 +17,7 @@ export const portfolioData: PortfolioData = {
       "Adapted quickly to new tools and frameworks during internships and volunteer projects",
     ],
     interests: [
+      "Coding / Programming",
       "Open Source Contributions",
       "Machine Learning",
       "Mobile Development",
