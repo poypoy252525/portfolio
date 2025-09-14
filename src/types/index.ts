@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 export interface Project {
   id: string;
   title: string;
@@ -29,7 +31,7 @@ export interface AboutContent {
 export interface SocialLink {
   platform: string;
   url: string;
-  icon: string;
+  icon: LucideIcon;
 }
 
 export interface ContactInfo {

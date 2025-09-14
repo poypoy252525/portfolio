@@ -1,4 +1,5 @@
 import type { PortfolioData } from "@/types";
+import { Github, Mail } from "lucide-react";
 
 export const portfolioData: PortfolioData = {
   personal: {
@@ -154,29 +155,19 @@ export const portfolioData: PortfolioData = {
     },
   ],
   contact: {
-    email: "carlj@example.com",
-    phone: "+1 (555) 123-4567",
-    location: "San Francisco, CA",
+    email: "carljefferson.delfin@gmail.com",
+    phone: "+63 910 359 4750",
+    location: "Rodriguez, Rizal, Philippines",
     social: [
       {
         platform: "GitHub",
-        url: "https://github.com/carlj",
-        icon: "github",
-      },
-      {
-        platform: "LinkedIn",
-        url: "https://linkedin.com/in/carlj",
-        icon: "linkedin",
-      },
-      {
-        platform: "Twitter",
-        url: "https://twitter.com/carlj",
-        icon: "twitter",
+        url: "https://github.com/poypoy252525",
+        icon: Github,
       },
       {
         platform: "Email",
-        url: "mailto:carlj@example.com",
-        icon: "mail",
+        url: "https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZqlrSkXtRqTqDKxHwZzksFvWwCsCNjQxckmWRjHcVwgxfBjTsJHFdKSPMrszhnhVkzXPC",
+        icon: Mail,
       },
     ],
   },
