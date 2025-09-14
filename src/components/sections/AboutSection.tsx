@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import type { AboutContent } from '@/types';
-import { motion } from 'framer-motion';
-import { User, Briefcase, Heart } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import type { AboutContent } from "@/types";
+import { motion } from "framer-motion";
+import { User, Briefcase, Heart } from "lucide-react";
 
 interface AboutSectionProps {
   content: AboutContent;
@@ -44,7 +44,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
           <motion.div variants={itemVariants} className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Get to know more about my background, experience, and what drives me as a developer.
+              Get to know more about my background, experience, and what drives
+              me as a developer.
             </p>
           </motion.div>
 
@@ -117,19 +118,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-primary">3+</div>
-                    <div className="text-sm text-muted-foreground">Years Experience</div>
+                    <div className="text-sm text-muted-foreground">
+                      Years Experience
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-primary">50+</div>
-                    <div className="text-sm text-muted-foreground">Projects Completed</div>
+                    <div className="text-sm text-muted-foreground">
+                      Projects Completed
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-primary">100%</div>
-                    <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                    <div className="text-sm text-muted-foreground">
+                      Client Satisfaction
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-primary">24/7</div>
-                    <div className="text-sm text-muted-foreground">Learning Mode</div>
+                    <div className="text-sm text-muted-foreground">
+                      Learning Mode
+                    </div>
                   </div>
                 </div>
               </CardContent>

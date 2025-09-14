@@ -65,8 +65,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
                 {displayedText.trim()}
-                <span className="animate-pulse">|</span>
               </span>
+              <span className="animate-pulse text-primary font-light">|</span>
             </h1>
 
             <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground">
