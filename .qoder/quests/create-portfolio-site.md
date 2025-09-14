@@ -87,37 +87,45 @@ App
 #### Reusable UI Components (Bottom Layer)
 
 **Button Component (shadcn/ui)**
+
 - Pre-built with variants and sizes
 - Props: `variant, size, className, children`
 
 **Card Component (shadcn/ui)**
+
 - Container for content sections
 - Props: `className, children`
 
 **Badge Component (shadcn/ui)**
+
 - For skill tags and technology labels
 - Props: `variant, className, children`
 
 **ThemeToggle Component**
+
 - Dark/light mode switcher
 - Uses theme store
 - Props: `className?: string`
 
 **AnimatedText Component**
+
 - Typing animation effect
 - Props: `text: string, delay?: number, className?: string`
 
 **SkillBadge Component**
+
 - Skill level indicator with badge
 - Props: `skill: Skill, className?: string`
 
 **SocialLink Component**
+
 - Social media link with icon
 - Props: `link: SocialLink, className?: string`
 
 #### Layout Components (Middle Layer)
 
 **Header Component**
+
 - Navigation with smooth scroll anchors
 - Theme toggle integration
 - Responsive hamburger menu for mobile
@@ -125,6 +133,7 @@ App
 - Props: `className?: string`
 
 **Footer Component**
+
 - Copyright information
 - Social links using SocialLink components
 - Contact information
@@ -133,6 +142,7 @@ App
 #### Section Components (Top Layer)
 
 **HeroSection Component**
+
 - Uses AnimatedText for typing effect
 - Call-to-action buttons using Button components
 - Professional avatar/image
@@ -140,6 +150,7 @@ App
 - Props: `className?: string`
 
 **AboutSection Component**
+
 - Professional summary display
 - Experience highlights
 - Personal interests
@@ -147,12 +158,14 @@ App
 - Props: `className?: string`
 
 **ProjectsSection Component**
+
 - Grid layout of ProjectCard components
 - Filter/search functionality
 - Uses projects store for data and filtering
 - Props: `className?: string`
 
 **ProjectCard Component**
+
 - Project image/screenshot
 - Title and description
 - Technology stack using Badge components
@@ -160,6 +173,7 @@ App
 - Props: `project: Project, className?: string`
 
 **SkillsSection Component**
+
 - Technical skills categorized
 - Uses SkillBadge components for display
 - Technology icons
@@ -167,6 +181,7 @@ App
 - Props: `className?: string`
 
 **ContactSection Component**
+
 - Contact form using ContactForm component
 - Contact information
 - Social media links using SocialLink components
@@ -174,6 +189,7 @@ App
 - Props: `className?: string`
 
 **ContactForm Component**
+
 - Form validation and submission
 - Uses contact store for state management
 - Error handling and success states
@@ -229,73 +245,79 @@ interface SocialLink {
 #### State Management Strategy (Zustand)
 
 **Theme Store**
+
 ```typescript
 interface ThemeState {
-  theme: 'light' | 'dark'
-  toggleTheme: () => void
-  setTheme: (theme: 'light' | 'dark') => void
+  theme: "light" | "dark";
+  toggleTheme: () => void;
+  setTheme: (theme: "light" | "dark") => void;
 }
 ```
 
 **Portfolio Store**
+
 ```typescript
 interface PortfolioState {
-  personalInfo: PersonalInfo
-  aboutContent: AboutContent
-  isLoading: boolean
-  setPersonalInfo: (info: PersonalInfo) => void
-  setAboutContent: (content: AboutContent) => void
+  personalInfo: PersonalInfo;
+  aboutContent: AboutContent;
+  isLoading: boolean;
+  setPersonalInfo: (info: PersonalInfo) => void;
+  setAboutContent: (content: AboutContent) => void;
 }
 ```
 
 **Projects Store**
+
 ```typescript
 interface ProjectsState {
-  projects: Project[]
-  filteredProjects: Project[]
-  selectedTechnology: string | null
-  searchQuery: string
-  isLoading: boolean
-  setProjects: (projects: Project[]) => void
-  filterByTechnology: (tech: string | null) => void
-  searchProjects: (query: string) => void
-  toggleFeatured: (projectId: string) => void
+  projects: Project[];
+  filteredProjects: Project[];
+  selectedTechnology: string | null;
+  searchQuery: string;
+  isLoading: boolean;
+  setProjects: (projects: Project[]) => void;
+  filterByTechnology: (tech: string | null) => void;
+  searchProjects: (query: string) => void;
+  toggleFeatured: (projectId: string) => void;
 }
 ```
 
 **Skills Store**
+
 ```typescript
 interface SkillsState {
-  skillCategories: SkillCategory[]
-  selectedCategory: string | null
-  isLoading: boolean
-  setSkillCategories: (categories: SkillCategory[]) => void
-  selectCategory: (category: string | null) => void
+  skillCategories: SkillCategory[];
+  selectedCategory: string | null;
+  isLoading: boolean;
+  setSkillCategories: (categories: SkillCategory[]) => void;
+  selectCategory: (category: string | null) => void;
 }
 ```
 
 **Contact Store**
+
 ```typescript
 interface ContactState {
-  formData: ContactFormData
-  isSubmitting: boolean
-  submitStatus: 'idle' | 'success' | 'error'
-  errors: Record<string, string>
-  updateFormData: (data: Partial<ContactFormData>) => void
-  submitForm: () => Promise<void>
-  resetForm: () => void
-  clearErrors: () => void
+  formData: ContactFormData;
+  isSubmitting: boolean;
+  submitStatus: "idle" | "success" | "error";
+  errors: Record<string, string>;
+  updateFormData: (data: Partial<ContactFormData>) => void;
+  submitForm: () => Promise<void>;
+  resetForm: () => void;
+  clearErrors: () => void;
 }
 ```
 
 **Navigation Store**
+
 ```typescript
 interface NavigationState {
-  activeSection: string
-  isMobileMenuOpen: boolean
-  setActiveSection: (section: string) => void
-  toggleMobileMenu: () => void
-  closeMobileMenu: () => void
+  activeSection: string;
+  isMobileMenuOpen: boolean;
+  setActiveSection: (section: string) => void;
+  toggleMobileMenu: () => void;
+  closeMobileMenu: () => void;
 }
 ```
 
@@ -304,14 +326,15 @@ interface NavigationState {
 ### Reusable Components with Store Integration
 
 **ThemeToggle Component**
+
 ```tsx
-import { useThemeStore } from '@/stores'
-import { Button } from '@/components/ui/button'
-import { Moon, Sun } from 'lucide-react'
+import { useThemeStore } from "@/stores";
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
 
 export const ThemeToggle = ({ className }: { className?: string }) => {
-  const { theme, toggleTheme } = useThemeStore()
-  
+  const { theme, toggleTheme } = useThemeStore();
+
   return (
     <Button
       variant="ghost"
@@ -319,67 +342,81 @@ export const ThemeToggle = ({ className }: { className?: string }) => {
       onClick={toggleTheme}
       className={className}
     >
-      {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+      {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
     </Button>
-  )
-}
+  );
+};
 ```
 
 **ProjectCard Component**
+
 ```tsx
-import { Project } from '@/types'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
+import { Project } from "@/types";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectCardProps {
-  project: Project
-  className?: string
+  project: Project;
+  className?: string;
 }
 
 export const ProjectCard = ({ project, className }: ProjectCardProps) => {
   return (
-    <Card className={cn("overflow-hidden hover:shadow-lg transition-shadow", className)}>
+    <Card
+      className={cn(
+        "overflow-hidden hover:shadow-lg transition-shadow",
+        className
+      )}
+    >
       <CardHeader>
         <CardTitle>{project.title}</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-muted-foreground">{project.description}</p>
-        
+
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
-            <Badge key={tech} variant="secondary">{tech}</Badge>
+            <Badge key={tech} variant="secondary">
+              {tech}
+            </Badge>
           ))}
         </div>
-        
+
         <div className="flex gap-2">
           {project.liveUrl && (
             <Button variant="default" size="sm" asChild>
-              <a href={project.liveUrl} target="_blank">Live Demo</a>
+              <a href={project.liveUrl} target="_blank">
+                Live Demo
+              </a>
             </Button>
           )}
           {project.githubUrl && (
             <Button variant="outline" size="sm" asChild>
-              <a href={project.githubUrl} target="_blank">Source Code</a>
+              <a href={project.githubUrl} target="_blank">
+                Source Code
+              </a>
             </Button>
           )}
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 ```
 
 **ContactForm Component with Store**
+
 ```tsx
-import { useContactForm } from '@/hooks/useContactForm'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+import { useContactForm } from "@/hooks/useContactForm";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export const ContactForm = ({ className }: { className?: string }) => {
-  const { formData, updateFormData, handleSubmit, isSubmitting, errors } = useContactForm()
-  
+  const { formData, updateFormData, handleSubmit, isSubmitting, errors } =
+    useContactForm();
+
   return (
     <form onSubmit={handleSubmit} className={cn("space-y-4", className)}>
       <Input
@@ -402,11 +439,11 @@ export const ContactForm = ({ className }: { className?: string }) => {
         error={errors.message}
       />
       <Button type="submit" disabled={isSubmitting} className="w-full">
-        {isSubmitting ? 'Sending...' : 'Send Message'}
+        {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
     </form>
-  )
-}
+  );
+};
 ```
 
 ## Routing & Navigation
@@ -481,6 +518,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
 ### Service Layer Architecture
 
 **Service Organization**
+
 ```
 src/services/
 ├── portfolioService.ts   # Portfolio data operations
@@ -490,36 +528,39 @@ src/services/
 ```
 
 **Portfolio Service**
+
 ```typescript
 interface PortfolioService {
-  loadPersonalInfo(): Promise<PersonalInfo>
-  loadAboutContent(): Promise<AboutContent>
-  loadProjects(): Promise<Project[]>
-  loadSkills(): Promise<SkillCategory[]>
+  loadPersonalInfo(): Promise<PersonalInfo>;
+  loadAboutContent(): Promise<AboutContent>;
+  loadProjects(): Promise<Project[]>;
+  loadSkills(): Promise<SkillCategory[]>;
 }
 
 export const portfolioService: PortfolioService = {
   async loadPersonalInfo() {
     // Load from static JSON or API
-    return await import('@/data/personal-info.json')
+    return await import("@/data/personal-info.json");
   },
-  
+
   async loadProjects() {
     // Combine static data with GitHub API
-    const staticProjects = await import('@/data/projects.json')
-    const githubData = await githubService.getUserRepos()
-    return mergeProjectData(staticProjects, githubData)
-  }
-}
+    const staticProjects = await import("@/data/projects.json");
+    const githubData = await githubService.getUserRepos();
+    return mergeProjectData(staticProjects, githubData);
+  },
+};
 ```
 
 ### Contact Form Integration
+
 - **Email Service**: Integration with EmailJS or Netlify Forms
 - **Form Validation**: Zod schema validation
 - **Error Handling**: Comprehensive error states in contact store
 - **Success States**: User feedback through store state
 
 ### External API Integration
+
 - **GitHub API**: Repository information for projects
 - **Rate Limiting**: Implement request throttling
 - **Caching**: Store API responses in local storage
@@ -593,6 +634,7 @@ src/
 ### Clean Architecture Principles
 
 **Separation of Concerns**
+
 - **Presentation Layer**: React components focused on UI rendering
 - **Business Logic Layer**: Custom hooks containing application logic
 - **State Management Layer**: Zustand stores for state operations
@@ -600,11 +642,13 @@ src/
 - **Types Layer**: TypeScript interfaces and type definitions
 
 **Dependency Inversion**
+
 - Components depend on hooks, not directly on stores
 - Hooks depend on services, not directly on external APIs
 - Services implement interfaces, allowing easy testing and mocking
 
 **Single Responsibility**
+
 - Each component has one clear purpose
 - Stores manage specific domain state
 - Services handle specific external operations
