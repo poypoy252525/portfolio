@@ -109,7 +109,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               Get In Touch
             </Button>
 
-            <Button
+            {/* <Button
               variant="outline"
               size="lg"
               className="w-full sm:w-auto"
@@ -120,7 +120,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             >
               <Download className="mr-2 h-4 w-4" />
               Download CV
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* Social Links */}
