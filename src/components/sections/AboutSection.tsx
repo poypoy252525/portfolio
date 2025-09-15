@@ -111,7 +111,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
             </Card>
           </motion.div>
 
-          {/* Fun Stats or Additional Info */}
+          {/* Fun Stats or Additional Info
           <motion.div variants={itemVariants} className="mt-8">
             <Card>
               <CardContent className="pt-6">
@@ -143,7 +143,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

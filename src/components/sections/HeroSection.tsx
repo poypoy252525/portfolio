@@ -131,7 +131,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="flex justify-center space-x-4 pt-8"
           >
             <a
-              href="https://github.com"
+              href="https://github.com/poypoy252525"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full border transition-colors hover:bg-accent hover:text-accent-foreground"
@@ -140,7 +140,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/delfin-carl-jefferson-e-017b56280/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full border transition-colors hover:bg-accent hover:text-accent-foreground"

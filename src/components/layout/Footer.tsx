@@ -11,17 +11,17 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
   const socialLinks = [
     {
       icon: Github,
-      href: "https://github.com",
+      href: "https://github.com/poypoy252525",
       label: "GitHub",
     },
     {
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/delfin-carl-jefferson-e-017b56280/",
       label: "LinkedIn",
     },
     {
       icon: Mail,
-      href: "mailto:contact@example.com",
+      href: "https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZqlrSkXtRqTqDKxHwZzksFvWwCsCNjQxckmWRjHcVwgxfBjTsJHFdKSPMrszhnhVkzXPC",
       label: "Email",
     },
   ];
