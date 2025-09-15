@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
                       <button
                         key={item.href}
                         onClick={() => handleNavClick(item.href)}
-                        className="flex items-center justify-start w-full px-4 py-3 text-left text-base font-medium rounded-lg transition-all duration-200 hover:bg-accent hover:text-accent-foreground text-foreground/70 hover:text-foreground active:scale-95"
+                        className="flex items-center justify-start w-full px-4 py-3 text-left text-base font-medium rounded-lg transition-all duration-200 hover:bg-accent text-foreground/70 hover:text-foreground active:scale-95"
                       >
                         {item.label}
                       </button>
