@@ -100,7 +100,7 @@ export const portfolioData: PortfolioData = {
         "Framer Motion",
         "shadcn/ui",
       ],
-      liveUrl: "",
+      // liveUrl: "",
       githubUrl: "https://github.com/poypoy252525/portfolio",
       featured: true,
     },
