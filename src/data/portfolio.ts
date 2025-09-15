@@ -29,7 +29,7 @@ export const portfolioData: PortfolioData = {
   },
   projects: [
     {
-      id: crypto.randomUUID(),
+      id: "chatbot-project",
       title: "Delfin Chatbot",
       description:
         "A simple chatbot that uses gemma 3 27B which is an open source LLM from Google. It can take images and text as inputs and text for output.",
@@ -48,7 +48,7 @@ export const portfolioData: PortfolioData = {
       featured: true,
     },
     {
-      id: crypto.randomUUID(),
+      id: "noteai-project",
       title: "Note AI",
       description:
         "A simple note taking app that uses AI to automatically detect the semantic meaning of the notes. It also supports Semantic search for better search experience.",
@@ -70,7 +70,7 @@ export const portfolioData: PortfolioData = {
       featured: true,
     },
     {
-      id: crypto.randomUUID(),
+      id: "gamehub-project",
       title: "Game Hub",
       description:
         "A responsive game hub built with React and Mantine UI, offering a seamless experience for game enthusiasts. ",
@@ -88,7 +88,7 @@ export const portfolioData: PortfolioData = {
       featured: true,
     },
     {
-      id: crypto.randomUUID(),
+      id: "portfolio-project",
       title: "Portfolio Website",
       description:
         "A responsive portfolio website built with modern web technologies, featuring dark mode, smooth animations, and contact form integration.",
@@ -105,7 +105,7 @@ export const portfolioData: PortfolioData = {
       featured: true,
     },
     {
-      id: crypto.randomUUID(),
+      id: "sgg-admin-project",
       title: "SGG - Admin",
       description:
         "A windows application for managing tasks built with React with Electron, utilizing local storage for data persistence.",
