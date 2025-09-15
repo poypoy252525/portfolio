@@ -79,7 +79,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            className="text-md md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed tracking-tight"
           >
             {description}
           </motion.p>
