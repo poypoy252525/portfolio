@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Download, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { ArrowDown, Github, Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface HeroSectionProps {
   name: string;
