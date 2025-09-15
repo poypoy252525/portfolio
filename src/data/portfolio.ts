@@ -6,7 +6,7 @@ export const portfolioData: PortfolioData = {
     name: "Carl Jefferson",
     title: "Full Stack Developer",
     description:
-      "I'm a passionate developer who loves creating beautiful, functional, and user-friendly applications. With expertise in modern web technologies, I bring ideas to life through clean code.",
+      "I'm a passionate developer who loves creating beautiful, functional, and user-friendly applications. With knowledge in modern web technologies, I bring ideas to life through clean code.",
   },
   about: {
     summary: `As a recent BSIT graduate, I focus on building scalable web applications and intuitive user interfaces. I’m passionate about writing clean, maintainable code and continuously learning new technologies. My goal is to grow as a full-stack developer while creating solutions that balance technical functionality with great user experiences.`,
