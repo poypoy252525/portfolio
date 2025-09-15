@@ -33,7 +33,7 @@ export const portfolioData: PortfolioData = {
       title: "Delfin Chatbot",
       description:
         "A simple chatbot that uses gemma 3 27B which is an open source LLM from Google. It can take images and text as inputs and text for output.",
-      image: "",
+      image: "/projects/chatbot-thumbnail.png",
       technologies: [
         "React",
         "Vite",
@@ -52,7 +52,7 @@ export const portfolioData: PortfolioData = {
       title: "Note AI",
       description:
         "A simple note taking app that uses AI to automatically detect the semantic meaning of the notes. It also supports Semantic search for better search experience.",
-      image: "",
+      image: "/projects/noteai-thumbnail.png",
       technologies: [
         "React",
         "PostgreSQL",
@@ -74,7 +74,7 @@ export const portfolioData: PortfolioData = {
       title: "Game Hub",
       description:
         "A responsive game hub built with React and Mantine UI, offering a seamless experience for game enthusiasts. ",
-      image: "",
+      image: "/projects/gamehub-thumbnail.png",
       technologies: [
         "React",
         "TypeScript",
@@ -92,7 +92,7 @@ export const portfolioData: PortfolioData = {
       title: "Portfolio Website",
       description:
         "A responsive portfolio website built with modern web technologies, featuring dark mode, smooth animations, and contact form integration.",
-      image: "",
+      image: "/projects/portfolio-thumbnail.png",
       technologies: [
         "React",
         "TypeScript",
