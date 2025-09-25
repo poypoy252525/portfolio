@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ReactTyped } from "react-typed";
 
 interface HeroSectionProps {
   name: string;
@@ -14,19 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   description,
 }) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
   const fullText = `Hi, I'm ${name}`;
-
-  useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText(fullText.slice(0, currentIndex + 1));
-        setCurrentIndex(currentIndex + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText]);
 
   const handleScrollToProjects = () => {
     const projectsSection = document.querySelector("#projects");
@@ -64,9 +52,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                {displayedText.trim()}
+                <ReactTyped
+                  strings={[fullText]}
+                  typeSpeed={80}
+                  backDelay={6000}
+                  backSpeed={20}
+                  showCursor
+                  loop={true}
+                  className="whitespace-nowrap truncate"
+                />
               </span>
-              <span className="animate-pulse text-primary font-light">|</span>
             </h1>
 
             <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-muted-foreground">
