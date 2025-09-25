@@ -20,11 +20,12 @@ export const portfolioData: PortfolioData = {
     interests: [
       "Coding / Programming",
       "Open Source Contributions",
-      "Machine Learning",
+      // "Machine Learning",
       "Mobile Development",
       "Gaming",
-      "Reading Tech Blogs",
+      // "Reading Tech Blogs",
       "Watching TV Shows",
+      "Web Development",
     ],
   },
   projects: [
@@ -123,6 +124,22 @@ export const portfolioData: PortfolioData = {
       githubUrl: "https://github.com/poypoy252525/sgg-admin",
       featured: false,
     },
+    {
+      title: "Grave Locator",
+      description:
+        "A mobile application that uses map for Cemetery. It tracks the specified grave using GPS. It can navigate the routes based on the road with classification (Car, Walk)",
+      image: "",
+      featured: false,
+      id: "grave-locator-project",
+      technologies: [
+        "React Native",
+        "Maplibre",
+        "GraphHopper",
+        "Expo",
+        "MongoDB",
+      ],
+      githubUrl: "https://github.com/poypoy252525/mms-mobile",
+    },
   ],
   skills: [
     {
@@ -134,6 +151,7 @@ export const portfolioData: PortfolioData = {
         { name: "Next.js", level: "intermediate" },
         { name: "Tailwind CSS", level: "intermediate" },
         { name: "Flutter", level: "beginner" },
+        { name: "Next.js", level: "intermediate" },
       ],
     },
     {
@@ -143,8 +161,9 @@ export const portfolioData: PortfolioData = {
         { name: "Express.js", level: "beginner" },
         { name: "Python", level: "beginner" },
         { name: "PostgreSQL", level: "beginner" },
-        { name: "MongoDB", level: "intermediate" },
+        { name: "MongoDB", level: "beginner" },
         { name: "REST APIs", level: "intermediate" },
+        { name: "Next.js serverless functions", level: "intermediate" },
       ],
     },
     {
@@ -157,6 +176,7 @@ export const portfolioData: PortfolioData = {
         { name: "VS Code", level: "intermediate" },
         { name: "Postman", level: "beginner" },
         { name: "Electron", level: "beginner" },
+        { name: "Prisma", level: "beginner" },
       ],
     },
   ],
