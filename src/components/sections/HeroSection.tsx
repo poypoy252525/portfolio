@@ -56,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   strings={[fullText]}
                   typeSpeed={80}
                   backDelay={6000}
-                  backSpeed={20}
+                  backSpeed={50}
                   showCursor
                   loop={true}
                   className="whitespace-nowrap truncate"
