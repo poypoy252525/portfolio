@@ -51,15 +51,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="space-y-4"
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
-              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              <span className="">
                 <ReactTyped
                   strings={[fullText]}
                   typeSpeed={80}
-                  backDelay={6000}
+                  backDelay={5000}
                   backSpeed={50}
                   showCursor
                   loop={true}
-                  className="whitespace-nowrap truncate"
+                  className="whitespace-nowrap truncate text-primary/90"
                 />
               </span>
             </h1>
