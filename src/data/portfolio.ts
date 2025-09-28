@@ -151,7 +151,6 @@ export const portfolioData: PortfolioData = {
         { name: "Next.js", level: "intermediate" },
         { name: "Tailwind CSS", level: "intermediate" },
         { name: "Flutter", level: "beginner" },
-        { name: "Next.js", level: "intermediate" },
       ],
     },
     {

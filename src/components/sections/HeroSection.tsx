@@ -53,12 +53,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight">
               <span className="">
                 <ReactTyped
-                  strings={[fullText]}
-                  typeSpeed={80}
-                  backDelay={5000}
-                  backSpeed={50}
+                  strings={[fullText.replace("s", ""), fullText]}
+                  typeSpeed={50}
+                  // backDelay={5000}
+                  backSpeed={20}
+                  smartBackspace
                   showCursor
-                  loop={true}
+                  // loop={true}
                   className="whitespace-nowrap truncate text-primary/90"
                 />
               </span>
@@ -92,7 +93,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               className="w-full sm:w-auto"
             >
               View My Work
-              <ArrowDown className="ml-2 h-4 w-4" />
+              <ArrowDown />
             </Button>
 
             <Button

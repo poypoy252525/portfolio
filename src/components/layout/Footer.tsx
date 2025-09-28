@@ -55,13 +55,13 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
           <div className="flex items-center space-x-1 text-sm text-muted-foreground">
             <span>© {currentYear} Made with</span>
             <Heart className="h-4 w-4 fill-red-500 text-red-500" />
-            <span>by Delfin</span>
+            <span>by CJ Delfin</span>
           </div>
 
           {/* Additional Info */}
-          <p className="text-xs text-muted-foreground text-center">
+          {/* <p className="text-xs text-muted-foreground text-center">
             Built with React, TypeScript, Tailwind CSS, and shadcn/ui
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>
