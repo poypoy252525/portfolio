@@ -1,20 +1,21 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import emailjs from "@emailjs/browser";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  subject: z.string().min(5, 'Subject must be at least 5 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.email("Please enter a valid email address"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -25,7 +26,9 @@ interface ContactFormProps {
 
 export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const {
     register,
@@ -38,20 +41,29 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
-      // Simulate form submission - replace with actual email service
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Here you would typically send the data to your backend or email service
-      console.log('Form submitted:', data);
-      
-      setSubmitStatus('success');
+      // Send email using EmailJS
+      // You'll need to set up your EmailJS service, template, and public key
+      const response = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || "", // Replace with your EmailJS service ID
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "", // Replace with your EmailJS template ID
+        {
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "" // Replace with your EmailJS public key
+      );
+
+      console.log("Email sent successfully:", response);
+      setSubmitStatus("success");
       reset();
     } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
+      console.error("Email sending error:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -73,8 +85,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             <Input
               id="name"
               placeholder="Your name"
-              {...register('name')}
-              className={errors.name ? 'border-destructive' : ''}
+              {...register("name")}
+              className={errors.name ? "border-destructive" : ""}
             />
             {errors.name && (
               <p className="text-sm text-destructive flex items-center gap-1">
@@ -91,8 +103,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
               id="email"
               type="email"
               placeholder="your.email@example.com"
-              {...register('email')}
-              className={errors.email ? 'border-destructive' : ''}
+              {...register("email")}
+              className={errors.email ? "border-destructive" : ""}
             />
             {errors.email && (
               <p className="text-sm text-destructive flex items-center gap-1">
@@ -108,8 +120,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             <Input
               id="subject"
               placeholder="What's this about?"
-              {...register('subject')}
-              className={errors.subject ? 'border-destructive' : ''}
+              {...register("subject")}
+              className={errors.subject ? "border-destructive" : ""}
             />
             {errors.subject && (
               <p className="text-sm text-destructive flex items-center gap-1">
@@ -126,8 +138,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
               id="message"
               placeholder="Tell me about your project or just say hello!"
               rows={5}
-              {...register('message')}
-              className={errors.message ? 'border-destructive' : ''}
+              {...register("message")}
+              className={errors.message ? "border-destructive" : ""}
             />
             {errors.message && (
               <p className="text-sm text-destructive flex items-center gap-1">
@@ -138,11 +150,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
           </div>
 
           {/* Submit Button */}
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={isSubmitting}
-          >
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
             {isSubmitting ? (
               <>
                 <motion.div
@@ -163,7 +171,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
           </Button>
 
           {/* Status Messages */}
-          {submitStatus === 'success' && (
+          {submitStatus === "success" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -174,7 +182,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className }) => {
             </motion.div>
           )}
 
-          {submitStatus === 'error' && (
+          {submitStatus === "error" && (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
