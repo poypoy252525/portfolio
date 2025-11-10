@@ -1,12 +1,9 @@
 import { ThemeProvider } from '@/hooks/useTheme';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { HeroSection } from '@/components/sections/HeroSection';
-import { AboutSection } from '@/components/sections/AboutSection';
-import { ProjectsSection } from '@/components/sections/ProjectsSection';
-import { SkillsSection } from '@/components/sections/SkillsSection';
-import { ContactSection } from '@/components/sections/ContactSection';
-import { portfolioData } from '@/data/portfolio';
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from '@/pages/HomePage';
+import { AllProjectsPage } from '@/pages/AllProjectsPage';
 
 function App() {
   return (
@@ -14,21 +11,10 @@ function App() {
       <div className="min-h-screen bg-background text-foreground">
         <Header />
         
-        <main>
-          <HeroSection
-            name={portfolioData.personal.name}
-            title={portfolioData.personal.title}
-            description={portfolioData.personal.description}
-          />
-          
-          <AboutSection content={portfolioData.about} />
-          
-          <ProjectsSection projects={portfolioData.projects} />
-          
-          <SkillsSection skills={portfolioData.skills} />
-          
-          <ContactSection contactInfo={portfolioData.contact} />
-        </main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects" element={<AllProjectsPage />} />
+        </Routes>
         
         <Footer />
       </div>
