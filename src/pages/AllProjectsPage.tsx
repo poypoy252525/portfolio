@@ -1,27 +1,33 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { ProjectCard } from '@/components/ui/project-card';
-import { portfolioData } from '@/data/portfolio';
-import { Search, Filter, Folder, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ProjectCard } from "@/components/ui/project-card";
+import { portfolioData } from "@/data/portfolio";
+import { Search, Filter, Folder, ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const AllProjectsPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'featured'>('all');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedFilter, setSelectedFilter] = useState<"all" | "featured">(
+    "all"
+  );
 
   const projects = portfolioData.projects;
 
   // Filter projects based on search and filter
-  const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-    
-    const matchesFilter = selectedFilter === 'all' || 
-                         (selectedFilter === 'featured' && project.featured);
-    
+  const filteredProjects = projects.filter((project) => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.technologies.some((tech) =>
+        tech.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+    const matchesFilter =
+      selectedFilter === "all" ||
+      (selectedFilter === "featured" && project.featured);
+
     return matchesSearch && matchesFilter;
   });
 
@@ -47,32 +53,37 @@ export const AllProjectsPage = () => {
   };
 
   return (
-    <div className="min-h-screen py-8">
+    <div className="min-h-screen py-20 relative">
+      {/* Back Button - Absolute Position */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+        className="absolute top-6 left-4 md:left-8 z-10"
+      >
+        <Link to="/">
+          <Button variant="link" className="gap-2">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </Button>
+        </Link>
+      </motion.div>
+
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          {/* Page Header with Back Button */}
-          <motion.div variants={itemVariants} className="mb-12">
-            {/* Back Button */}
-            <div className="mb-6">
-              <Link to="/">
-                <Button variant="ghost" className="gap-2 -ml-2">
-                  <ArrowLeft className="h-4 w-4" />
-                  Back to Home
-                </Button>
-              </Link>
-            </div>
-            
-            {/* Title Section */}
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">All Projects</h1>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Browse through my complete portfolio of projects, showcasing various technologies and domains.
-              </p>
-            </div>
+          {/* Page Header */}
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              All Projects
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Browse through my complete portfolio of projects, showcasing
+              various technologies and domains.
+            </p>
           </motion.div>
 
           {/* Search and Filter */}
@@ -92,22 +103,24 @@ export const AllProjectsPage = () => {
               {/* Filter Buttons */}
               <div className="flex gap-2">
                 <Button
-                  variant={selectedFilter === 'all' ? 'default' : 'outline'}
+                  variant={selectedFilter === "all" ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setSelectedFilter('all')}
+                  onClick={() => setSelectedFilter("all")}
                   className="flex items-center gap-2"
                 >
                   <Folder className="h-4 w-4" />
                   All ({projects.length})
                 </Button>
                 <Button
-                  variant={selectedFilter === 'featured' ? 'default' : 'outline'}
+                  variant={
+                    selectedFilter === "featured" ? "default" : "outline"
+                  }
                   size="sm"
-                  onClick={() => setSelectedFilter('featured')}
+                  onClick={() => setSelectedFilter("featured")}
                   className="flex items-center gap-2"
                 >
                   <Filter className="h-4 w-4" />
-                  Featured ({projects.filter(p => p.featured).length})
+                  Featured ({projects.filter((p) => p.featured).length})
                 </Button>
               </div>
             </div>
@@ -127,11 +140,7 @@ export const AllProjectsPage = () => {
           >
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  index={index}
-                />
+                <ProjectCard key={project.id} project={project} index={index} />
               ))
             ) : (
               <motion.div
@@ -140,8 +149,12 @@ export const AllProjectsPage = () => {
               >
                 <div className="text-muted-foreground">
                   <Search className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg">No projects found matching your criteria.</p>
-                  <p className="text-sm">Try adjusting your search or filter settings.</p>
+                  <p className="text-lg">
+                    No projects found matching your criteria.
+                  </p>
+                  <p className="text-sm">
+                    Try adjusting your search or filter settings.
+                  </p>
                 </div>
               </motion.div>
             )}
