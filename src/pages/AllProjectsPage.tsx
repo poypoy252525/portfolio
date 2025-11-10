@@ -47,29 +47,32 @@ export const AllProjectsPage = () => {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-8">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          {/* Back Button */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <Link to="/">
-              <Button variant="ghost" className="gap-2">
-                <ArrowLeft className="h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </motion.div>
-
-          {/* Page Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">All Projects</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Browse through my complete portfolio of projects, showcasing various technologies and domains.
-            </p>
+          {/* Page Header with Back Button */}
+          <motion.div variants={itemVariants} className="mb-12">
+            {/* Back Button */}
+            <div className="mb-6">
+              <Link to="/">
+                <Button variant="ghost" className="gap-2 -ml-2">
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Title Section */}
+            <div className="text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">All Projects</h1>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Browse through my complete portfolio of projects, showcasing various technologies and domains.
+              </p>
+            </div>
           </motion.div>
 
           {/* Search and Filter */}
