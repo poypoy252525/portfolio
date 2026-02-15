@@ -7,12 +7,14 @@ interface HeroSectionProps {
   name: string;
   title: string;
   description: string;
+  imageUrl?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
   name,
   title,
   description,
+  imageUrl,
 }) => {
   const fullText = `Hi, I'm ${name}`;
 
@@ -41,7 +43,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary/20"
     >
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-20 relative">
+        {imageUrl && (
+          <div className="absolute size-[40px] lg:size-40 border border-border rounded-full overflow-hidden top-4 left-4">
+            <img src={imageUrl} />
+          </div>
+        )}
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Animated Greeting */}
           <motion.div
